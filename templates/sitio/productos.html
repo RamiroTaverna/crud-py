@@ -1,0 +1,84 @@
+{% include 'sitio/cabecera.html' %}
+
+<!-- Estilos CSS personalizados -->
+<style>
+    .card {
+        background: rgba(255, 255, 255, 0.6); /* Fondo más claro */
+        backdrop-filter: blur(1px); /* Mayor difuminado */
+        width: 100%;
+        margin-bottom: 20px;
+        border: 0px solid #ddd;
+        border-radius: 7px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px); /* Efecto de elevación */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Evita que se desborde */
+}
+
+.card-img-top {
+    width: 100%; /* Ajusta el ancho automáticamente */
+    height: 100%; /* Ocupa toda la altura disponible */
+    max-height: 220px;
+}
+
+
+    
+    .card-body {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(45deg, #007bff, #0056b3);
+        border-radius: 6px;
+        padding: 10px 18px;
+        font-weight: bold;
+        position: relative; /* Permite que la sombra no afecte el flujo */
+        /*transition: box-shadow 0.3s ease;*/
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(45deg, #0056b3, #004494);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+
+
+</style>
+
+<div class="row">
+    {% for lista_prod in productos %}
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-img-container">
+                <img class="card-img-top" src="/img/{{ lista_prod[2] }}" alt="{{ lista_prod[1] }}">
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{ lista_prod[1] }}</h4>
+                <p class="card-text">
+                    <a class="btn btn-primary" href="{{ lista_prod[3] }}" target="_blank">Comprar</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'sitio/pie.html' %}

@@ -1,0 +1,98 @@
+{% include 'admin/cabecera.html' %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    Datos de productos
+                </div>
+                <div class="card-body">
+                    <form action="/admin/productos/guardar" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="txtNombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" name="txtNombre" id="txtNombre" value="{{ nombre }}">
+                            {% if alertaNombre %}
+                                <div class="alert alert-danger mt-2">{{ alertaNombre }}</div>
+                            {% endif %}
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label for="txtURL" class="form-label">Link de compra</label>
+                            <input type="text" class="form-control" name="txtURL" id="txtURL" value="{{ url }}">
+                            {% if alertaLink %}
+                                <div class="alert alert-danger mt-2">{{ alertaLink }}</div>
+                            {% endif %}
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label for="txtImagen" class="form-label">Imagen: (1080x1080)</label>
+                            <input type="file" class="form-control" name="txtImagen" id="txtImagen">
+                            {% if alertaImg %}
+                                <div class="alert alert-danger mt-2">{{ alertaImg }}</div>
+                            {% endif %}
+                        </div>
+                    
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <!-- Estilo CSS para las imágenes cuadradas -->
+            <style>
+                .img-cuadrada {
+                    width: 100px;
+                    height: 100px;
+                    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+                    border-radius: 8px; /* Bordes redondeados para mejor estética */
+                }
+                .table td, .table th {
+                    vertical-align: middle; /* Centrado vertical */
+                    text-align: center; /* Centrado horizontal */
+                }
+            </style>
+
+            <!-- Tabla de productos -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Imagen</th>
+                        <th>URL</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for lista_prod in productos %}
+                    <tr>
+                        <td>{{ lista_prod[0] }}</td>
+                        <td>{{ lista_prod[1] }}</td>
+                        <td>
+                            <img src="/img/{{ lista_prod[2] }}" class="img-cuadrada" alt="{{ lista_prod[1] }}">
+                        </td>
+                        <td>
+                            <a href="{{ lista_prod[3] }}" class="btn btn-info" target="_blank">Link</a>
+                        </td>
+                        <td>
+                            <form action="/admin/productos/borrar" method="post">
+                                <input type="hidden" name="txtID" id="txtID" value="{{ lista_prod[0] }}">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+{% include 'admin/pie.html' %}

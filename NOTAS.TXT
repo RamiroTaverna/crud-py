@@ -1,0 +1,22 @@
+instalar python https://www.python.org/downloads/
+instalar xamp
+poner la carpeta en C:\xampp\htdocs
+abrir vs code e importar la carpeta (de la raiz C:\xampp\htdocs\crud-py)
+ctrl + ñ para abrir la terminal
+escribir:
+pip install flask
+pip install flask-mysql
+pip install pillow
+python app.py
+
+ir a localhost/phpmyadmin -> en el navegador
+importar la bd 'productos' de ésta carpeta
+
+http://127.0.0.1:5000 -> url del navegador para ingresar a la web
+
+ya deberia estar todo OK.
+
+login panel adm:
+admin
+1234
+

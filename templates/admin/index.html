@@ -1,0 +1,15 @@
+{% include 'admin/cabecera.html' %}
+
+<div class="p-5 bg-light">
+    <div class="container">
+        <h1 class="display-3">Bienvenido <strong> {{ session["usuario"] }} </strong> </h1>
+        <p class="lead">Acá se administran los productos</p>
+        <hr class="my-2">
+        <p>More info</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/admin/productos" role="button">Empezar gestión</a>
+        </p>
+    </div>
+</div>
+
+{% include 'admin/pie.html' %}

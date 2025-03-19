@@ -1,0 +1,55 @@
+{% include 'sitio/cabecera.html' %}
+
+<style>
+    /* Estilos para los botones */
+    .btn-primary {
+        background: linear-gradient(45deg, #007bff, #0056b3);
+        border-radius: 6px;
+        padding: 10px 18px;
+        font-weight: bold;
+        position: relative;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(45deg, #0056b3, #004494);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Estilos para el div transparente */
+    .transparent-div {
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.6); /* Fondo blanco con 40% de opacidad */
+        backdrop-filter: blur(1px); /* Efecto de desenfoque */
+        padding: 2rem; /* Ajuste de padding */
+    }
+
+    /* Estilos adicionales para mejorar la apariencia */
+    h1.display-3 {
+        color: #333; /* Color del título */
+    }
+
+    h3 {
+        color: #555; /* Color del subtítulo */
+    }
+
+    .lead {
+        margin-top: 1.5rem; /* Espaciado superior */
+    }
+
+</style>
+
+<div class="p-5 text-center transparent-div">
+    <div class="container">
+        <h1 class="display-3"><strong>TITULO</strong></h1>
+        <br>
+        <h3>INFO DE LA <span style="color: red;">TIENDA</span></h3>
+        <br>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="productos" role="button">VER CATALOGO</a>
+            <a class="btn btn-primary btn-lg" href="nosotros" role="button">¿QUIENES SOMOS?</a>
+        </p>
+    </div>
+</div>
+
+{% include 'sitio/pie.html' %}

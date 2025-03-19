@@ -1,0 +1,52 @@
+{% include './sitio/cabecera.html' %}
+
+            <div class="row">
+                <div class="col-md-4">
+                    
+                </div>
+                <div class="col-md-4">
+                    <br>
+
+                    {% if mensaje %}
+                    <div class="alert alert-danger" role="alert">
+                        <strong>{{ mensaje }}</strong>
+                    </div>
+                    {% endif %}
+                    
+
+                    <div class="card">
+                        <div class="card-header">
+                            Inicio de sesion
+                        </div>
+                        <div class="card-body">
+
+                            <form action="/admin/login" method="post">
+
+                                <div class="mb-3">
+                                <label for="txtUsuario" class="form-label">Usuario</label>
+                                <input type="text" class="form-control" name="txtUsuario" id="txtUsuario" aria-describedby="helpId" placeholder="Ingrese su usuario">
+                                </div>
+                            
+                                <div class="mb-3">
+                                  <label for="txtPassword" class="form-label">Contraseña</label>
+                                  <input type="text"
+                                    class="form-control" name="txtPassword" id="txtPassword" aria-describedby="helpId" placeholder="Ingrese su contraseña">
+                                </div>
+
+                                <button type="submit" class="btn btn-success">Entrar</button>
+
+                            </form>
+                        
+                        </div>
+                        <div class="card-footer text-muted">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    
+                </div>
+                
+            </div>
+
+{% include './sitio/pie.html' %}
